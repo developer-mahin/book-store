@@ -123,28 +123,21 @@ i.fa-solid.fa-heart {
   }
 }
 
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
+/* Filtering Row */
 .filter {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  padding-top: 40px;
 }
 
-.filter label {
-  margin-right: 10px;
-  font-weight: bold;
+.label {
 }
 
-.filter select {
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.search input {
+  width: 350px;
+  padding: 13px 15px;
+  background: #ddd;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
 }
 
 /* book Row */
@@ -317,6 +310,15 @@ button.btn-remove:hover {
   opacity: 0.7;
 }
 
+select.filter-select {
+  width: 350px;
+  border: 1px solid #ddd;
+  padding: 13px 13px;
+  border-radius: 8px;
+  outline: none;
+  background: #ddd;
+}
+
 @media (max-width: 1024px) {
   .container {
     width: 100%;
@@ -366,10 +368,6 @@ button.btn-remove:hover {
     margin: 0px;
   }
 
-  .wishlist-text {
-    display: none;
-  }
-
   .wishlist-text i {
     display: block;
   }
@@ -380,11 +378,23 @@ button.btn-remove:hover {
     padding-left: 10px;
   }
 
-  .filter-row {
-    display: block;
+  .book-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .search input {
+    width: 100%;
   }
 
-  .filter {
-    margin-bottom: 15px;
+  .book-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .book-row {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

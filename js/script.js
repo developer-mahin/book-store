@@ -14,12 +14,16 @@ logo.addEventListener("click", () => {
 
 
 let currentPage = 1
-
+let searchTerm = ""
 
 /* Load All book data */
 const loadBookData = (page = 1) => {
 
-    fetch(`https://gutendex.com/books?page=${page}`)
+    const searchQuery = searchTerm ? `&search=${searchTerm}` : ""
+
+    console.log(searchQuery)
+
+    fetch(`https://gutendex.com/books?page=${page}${searchQuery}`)
         .then((res) => res.json())
         .then(data => {
             displayBookData(data.results)
@@ -59,6 +63,16 @@ const pagination = () => {
 }
 
 
+/* Search Function */
+const searchFunction = () => {
+    const searchInput = document.getElementById("search-input")
+
+    searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value
+        loadBookData()
+    })
+}
+
 /* wishlist Option */
 let storeSingleBook = {}
 
@@ -80,7 +94,7 @@ const displayBookData = (books) => {
         bookDiv.innerHTML = `
         <div>
             <img src="${formats["image/jpeg"]}" alt="${title}" />
-            <p class="author">${authors[0]?.name}</p>
+            <p class="author">Author: ${authors[0]?.name}</p>
             <h3 class="title">${title.slice(0, 50) + "..."}</h3>
 
         <div class="overlay">
@@ -160,5 +174,6 @@ const addToWishlist = (book) => {
 };
 
 
+searchFunction()
 loadBookData()
 pagination()

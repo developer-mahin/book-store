@@ -23,8 +23,16 @@
         </ul>
         <div id="logo" class="logo">BOOK STORE</div>
         <ul class="functions">
-          <li class="item"><a href="#">Search</a></li>
-          <li class="item"><a href="#">Account</a></li>
+          <li class="item">
+            <div class="search">
+              <input
+                type="text"
+                placeholder="Search by title"
+                class=""
+                id="search-input"
+              />
+            </div>
+          </li>
           <li class="wishlist">
             <a href="wishlist.html" class="wishlist-text"
               ><i class="fa-solid fa-heart"></i
@@ -44,36 +52,31 @@
       </div>
 
       <!-- Product list start -->
-      <section class="container">
-        <!-- <div class="filter-row">
+      <section class="">
+        <div>
+          <!-- Filter -->
           <div class="filter">
-            <label for="category">Category:</label>
-            <select id="category">
-              <option value="all">All</option>
-              <option value="electronics">Electronics</option>
-              <option value="fashion">Fashion</option>
-              <option value="books">Books</option>
-            </select>
+            <div class="search">
+              <input
+                type="text"
+                placeholder="Search by title"
+                class=""
+                id="search-input"
+              />
+            </div>
+            <div>
+              <select name="" id="filter-select" class="filter-select">
+                <option value="">Select one...</option>
+                <option value="Children">Children</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Adult">Adult</option>
+              </select>
+            </div>
           </div>
-          <div class="filter">
-            <label for="price">Price:</label>
-            <select id="price">
-              <option value="low-to-high">Low to High</option>
-              <option value="high-to-low">High to Low</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="rating">Rating:</label>
-            <select id="rating">
-              <option value="5-stars">5 Stars</option>
-              <option value="4-stars">4 Stars</option>
-              <option value="3-stars">3 Stars</option>
-            </select>
-          </div>
-        </div> -->
 
-        <!-- Product Row -->
-        <div id="book-list"></div>
+          <!-- Book Row -->
+          <div id="book-list"></div>
+        </div>
       </section>
 
       <!-- Pagination -->
