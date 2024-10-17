@@ -12,14 +12,50 @@ logo.addEventListener("click", () => {
     document.location = "../home.html"
 })
 
-/* Load All book data */
-const loadBookData = () => {
 
-    fetch("https://gutendex.com/books")
+let currentPage = 1
+
+
+/* Load All book data */
+const loadBookData = (page = 1) => {
+
+    fetch(`https://gutendex.com/books?page=${page}`)
         .then((res) => res.json())
-        .then(data => displayBookData(data.results))
-        .catch(error => console.log(error))
+        .then(data => {
+            displayBookData(data.results)
+            spinner(false)
+        })
+        .catch(error => {
+            console.log(error)
+            spinner(false)
+        })
     spinner(true)
+}
+
+
+/* Pagination Functions */
+const pagination = () => {
+
+    const nextButton = document.getElementById("next-button")
+    const prevButton = document.getElementById("prev-button")
+
+
+    prevButton.disabled = currentPage === 1;
+
+    prevButton.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            loadBookData(currentPage);
+            pagination();
+        }
+    });
+
+
+    nextButton.addEventListener("click", () => {
+        currentPage++
+        loadBookData(currentPage)
+    })
+
 }
 
 
@@ -31,6 +67,7 @@ const displayBookData = (books) => {
 
     const bookListContainer = document.getElementById("book-list")
     const bookRow = document.createElement("div")
+    bookListContainer.innerHTML = ""
     bookRow.classList.add("book-row")
 
     books.forEach(book => {
@@ -124,3 +161,4 @@ const addToWishlist = (book) => {
 
 
 loadBookData()
+pagination()

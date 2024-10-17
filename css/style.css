@@ -299,6 +299,24 @@ button.btn-remove:hover {
   opacity: 0.7;
 }
 
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.pagination-controls button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
+}
+
+.pagination-controls button:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 1024px) {
   .container {
     width: 100%;
