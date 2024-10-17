@@ -35,8 +35,6 @@ const displayBookData = (books) => {
 
     books.forEach(book => {
         const { authors, bookshelves, copyright, formats, id, subjects, title } = book
-
-
         storeSingleBook[id] = book
 
         const bookDiv = document.createElement("div")
@@ -104,9 +102,7 @@ const getFromLocalStorage = (storeName) => {
 }
 
 const setIntoLocalStorage = (storeName, data) => {
-
     return localStorage.setItem(storeName, JSON.stringify(data))
-
 }
 
 const addToWishlist = (book) => {
@@ -125,8 +121,6 @@ const addToWishlist = (book) => {
     }
 
 };
-
-
 
 
 loadBookData()

@@ -36,6 +36,11 @@ body {
   cursor: pointer;
 }
 
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -224,6 +229,74 @@ i.fa-solid.fa-heart {
 
 .overlay-btn:hover {
   color: yellow;
+}
+
+.wishlist-container {
+  padding: 20px;
+  margin: 30px 0px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.wishlist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.item-details {
+  display: flex;
+  gap: 20px;
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-desc h3 {
+  font-size: 1.25rem;
+}
+
+.item-price {
+  text-align: right;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+button.btn-remove {
+  font-size: 21px;
+  background: red;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button.btn-remove:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 1024px) {
