@@ -12,6 +12,14 @@ logo.addEventListener("click", () => {
     document.location = "../home.html"
 })
 
+// Spinner 
+const spinner = (isLoading) => {
+
+    const spinnerContainer = document.getElementById('spinner-container');
+    if (spinnerContainer) {
+        spinnerContainer.style.display = isLoading ? 'flex' : 'none';
+    }
+}
 
 let currentPage = 1
 let searchTerm = ""
@@ -43,6 +51,7 @@ const pagination = () => {
 
     const nextButton = document.getElementById("next-button")
     const prevButton = document.getElementById("prev-button")
+    const bookListContainer = document.getElementById("book-list")
 
 
     // prevButton.disabled = currentPage <= 1;
@@ -50,14 +59,16 @@ const pagination = () => {
     prevButton.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
+            spinner(true)
             loadBookData(currentPage);
-            // pagination();
         }
     });
 
 
     nextButton.addEventListener("click", () => {
         currentPage++
+        spinner(true)
+        bookListContainer.innerHTML = ""
         loadBookData(currentPage)
     })
 
@@ -73,6 +84,7 @@ const searchFunction = () => {
     searchInput.addEventListener("input", (e) => {
         bookListContainer.innerHTML = ""
         searchTerm = e.target.value
+        spinner(true)
         loadBookData()
     })
 }
@@ -86,6 +98,7 @@ const dropDownFilter = () => {
     dropDown.addEventListener("input", (e) => {
         bookListContainer.innerHTML = ""
         dropDownFilterValue = e.target.value
+        spinner(true)
         loadBookData()
     })
 }
@@ -109,7 +122,7 @@ const displayBookData = (books) => {
         bookDiv.classList.add("book", "fade-left")
 
         bookDiv.innerHTML = `
-        <div>
+        <div class="">
             <img src="${formats["image/jpeg"]}" alt="${title}" />
             <div class="author-wrapper">
                 <p class="author">Author: ${authors[0]?.name}</p>
@@ -143,19 +156,6 @@ const displayBookData = (books) => {
 
 
 }
-
-
-// Spinner 
-const spinner = (isLoaded) => {
-    const spinnerContainer = document.getElementById('spinner-container')
-    if (isLoaded) {
-        spinnerContainer.style.cssText = 'display:flex'
-    }
-    else {
-        spinnerContainer.style.cssText = "display:none"
-    }
-}
-
 
 
 const bookList = document.getElementById("book-list")
