@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
     <title>Book Store - Home Page</title>
   </head>
   <body>
     <!-- Header Start -->
 
-    <header class="header">
+    <header class="header fade-left">
       <nav class="navbar container">
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -42,16 +43,13 @@
 
     <main class="container">
       <!-- spinner -->
-      <div id="spinner-container" class="spinner-container">
-        <div class="spinner"></div>
-      </div>
 
       <!-- Product list start -->
       <section class="">
         <div>
           <!-- Filter -->
           <div class="filter">
-            <div class="search">
+            <div class="search fade-bottom">
               <input
                 type="text"
                 placeholder="Search by title"
@@ -60,7 +58,7 @@
               />
             </div>
             <div>
-              <select name="" id="filter-select" class="filter-select">
+              <select name="" id="filter-select" class="filter-select fade-right">
                 <option value="">Select Topic...</option>
                 <option value="Children">Children</option>
                 <option value="Fiction">Fiction</option>
@@ -72,12 +70,16 @@
           </div>
 
           <!-- Book Row -->
-          <div id="book-list"></div>
+          <div id="book-list" class="">
+            <div id="spinner-container" class="spinner-container fade-left">
+              <div class="spinner"></div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Pagination -->
-      <div class="pagination-controls" id="pagination">
+      <div class="pagination-controls fade-left" id="pagination">
         <button id="prev-button">Previous</button>
         <button id="next-button">Next</button>
       </div>

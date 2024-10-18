@@ -117,6 +117,7 @@ i.fa-solid.fa-heart {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -328,6 +329,7 @@ select.filter-select {
   gap: 20px;
 }
 
+
 @media (max-width: 1024px) {
   .container {
     width: 100%;
@@ -361,6 +363,7 @@ select.filter-select {
   .nav-links a {
     color: #fff;
   }
+
   .nav-links.show {
     display: flex;
   }

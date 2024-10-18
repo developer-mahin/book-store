@@ -45,13 +45,13 @@ const pagination = () => {
     const prevButton = document.getElementById("prev-button")
 
 
-    prevButton.disabled = currentPage === 1;
+    // prevButton.disabled = currentPage <= 1;
 
     prevButton.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
             loadBookData(currentPage);
-            pagination();
+            // pagination();
         }
     });
 
@@ -106,7 +106,7 @@ const displayBookData = (books) => {
         storeSingleBook[id] = book
 
         const bookDiv = document.createElement("div")
-        bookDiv.classList.add("book")
+        bookDiv.classList.add("book", "fade-left")
 
         bookDiv.innerHTML = `
         <div>
@@ -132,6 +132,7 @@ const displayBookData = (books) => {
         </div>
         `
 
+
         bookRow.appendChild(bookDiv)
         bookListContainer.appendChild(bookRow)
 
@@ -139,6 +140,7 @@ const displayBookData = (books) => {
 
 
     spinner(false)
+
 
 }
 
