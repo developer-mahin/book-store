@@ -111,8 +111,12 @@ const displayBookData = (books) => {
         bookDiv.innerHTML = `
         <div>
             <img src="${formats["image/jpeg"]}" alt="${title}" />
-            <p class="author">Author: ${authors[0]?.name}</p>
+            <div class="author-wrapper">
+                <p class="author">Author: ${authors[0]?.name}</p>
+                <p class="author">ID: ${id}</p>
+            </div>
             <h3 class="title">${title.slice(0, 50) + "..."}</h3>
+            
 
         <div class="overlay">
             <p class="overlay-btn wishlist-btn" data-book-id="${book.id}" id="wishlist"> 

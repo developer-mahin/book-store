@@ -127,7 +127,10 @@ i.fa-solid.fa-heart {
   padding-top: 40px;
 }
 
-.label {
+.author-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
 }
 
 .search input {
@@ -181,7 +184,7 @@ i.fa-solid.fa-heart {
 .book .author {
   width: fit-content;
   background-color: #0000009e;
-  padding: 8px 10px;
+  padding: 8px 8px;
   color: white;
   border-radius: 5px;
   font-size: 14px;
