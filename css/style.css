@@ -102,7 +102,6 @@ i.fa-solid.fa-heart {
 .spinner-container {
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .spinner {
@@ -319,6 +318,13 @@ select.filter-select {
   background: #ddd;
 }
 
+.filter {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
 @media (max-width: 1024px) {
   .container {
     width: 100%;
@@ -385,11 +391,19 @@ select.filter-select {
 
 @media (max-width: 768px) {
   .search input {
-    width: 100%;
+    width: 95vw;
+  }
+
+  select.filter-select {
+    width: 95vw;
   }
 
   .book-row {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter {
+    flex-direction: column;
   }
 }
 

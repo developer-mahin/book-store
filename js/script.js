@@ -15,15 +15,16 @@ logo.addEventListener("click", () => {
 
 let currentPage = 1
 let searchTerm = ""
+let dropDownFilterValue = ""
 
 /* Load All book data */
 const loadBookData = (page = 1) => {
 
     const searchQuery = searchTerm ? `&search=${searchTerm}` : ""
+    const dropDownQuery = dropDownFilterValue ? `&topic=${dropDownFilterValue}` : ""
 
-    console.log(searchQuery)
 
-    fetch(`https://gutendex.com/books?page=${page}${searchQuery}`)
+    fetch(`https://gutendex.com/books?page=${page}${searchQuery}${dropDownQuery}`)
         .then((res) => res.json())
         .then(data => {
             displayBookData(data.results)
@@ -66,9 +67,25 @@ const pagination = () => {
 /* Search Function */
 const searchFunction = () => {
     const searchInput = document.getElementById("search-input")
+    const bookListContainer = document.getElementById("book-list")
+
 
     searchInput.addEventListener("input", (e) => {
+        bookListContainer.innerHTML = ""
         searchTerm = e.target.value
+        loadBookData()
+    })
+}
+
+/* Drop Down Filter */
+
+const dropDownFilter = () => {
+    const dropDown = document.getElementById("filter-select")
+    const bookListContainer = document.getElementById("book-list")
+
+    dropDown.addEventListener("input", (e) => {
+        bookListContainer.innerHTML = ""
+        dropDownFilterValue = e.target.value
         loadBookData()
     })
 }
@@ -174,6 +191,8 @@ const addToWishlist = (book) => {
 };
 
 
+
+dropDownFilter()
 searchFunction()
 loadBookData()
 pagination()
